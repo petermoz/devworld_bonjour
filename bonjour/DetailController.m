@@ -8,6 +8,10 @@
 
 #import "DetailController.h"
 
+
+#import <netinet/in.h>
+#import <arpa/inet.h>
+
 @interface DetailController ()
 
 @end
@@ -38,7 +42,7 @@
     if(!self.service.hostName)
         return 1;
     else
-        return 3;
+        return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,11 +60,19 @@
             cell.detailTextLabel.text = self.service.hostName;
             break;
         case 2:
+            cell.textLabel.text = @"ip";
+            if([self.service.addresses count] > 0)
+            {
+                struct sockaddr_in addr = *(struct sockaddr_in *)[self.service.addresses[0] bytes];
+                cell.detailTextLabel.text = [NSString stringWithFormat: @"%s", inet_ntoa(addr.sin_addr)];
+            }
+            else
+                cell.detailTextLabel.text = @"not resolved";
+            break;
+        case 3:
             cell.textLabel.text = @"port";
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", self.service.port];
             break;
-        default:
-            cell.textLabel.text = @"ERROR";
     }
     
     return cell;
