@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <NSNetServiceBrowserDelegate>
 
 @property (retain) NSMutableArray *services;
+@property (retain) NSNetServiceBrowser *browser;
 
 @end
 
@@ -22,6 +23,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
 
     self.services = [[NSMutableArray alloc] init];
+    self.browser = [[NSNetServiceBrowser alloc] init];
+    
+    self.browser.delegate = self;
+    [self.browser searchForServicesOfType:@"_dev_world._tcp" inDomain:@"local"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +55,19 @@
 
 # pragma mark - NetServiceBrowser delegate
 
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
+{
+    [self.services addObject:aNetService];
+    if(!moreComing)
+        [self.tableView reloadData];
+}
+
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didRemoveService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
+{
+    [self.services removeObject:aNetService];
+    if(!moreComing)
+        [self.tableView reloadData];
+}
 
 
 @end
