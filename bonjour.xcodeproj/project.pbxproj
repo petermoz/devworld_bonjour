@@ -18,6 +18,7 @@
 		D07A4D9C160EB4BB004A99C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D07A4D9B160EB4BB004A99C6 /* Default-568h@2x.png */; };
 		D07A4D9F160EB4BB004A99C6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D07A4D9D160EB4BB004A99C6 /* MainStoryboard.storyboard */; };
 		D07A4DA2160EB4BB004A99C6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07A4DA1160EB4BB004A99C6 /* ViewController.m */; };
+		D07A4DAA160EB5ED004A99C6 /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07A4DA9160EB5ED004A99C6 /* DetailController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		D07A4D9E160EB4BB004A99C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D07A4DA0160EB4BB004A99C6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D07A4DA1160EB4BB004A99C6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D07A4DA8160EB5ED004A99C6 /* DetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailController.h; sourceTree = "<group>"; };
+		D07A4DA9160EB5ED004A99C6 /* DetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +88,11 @@
 			children = (
 				D07A4D94160EB4BA004A99C6 /* AppDelegate.h */,
 				D07A4D95160EB4BA004A99C6 /* AppDelegate.m */,
-				D07A4D9D160EB4BB004A99C6 /* MainStoryboard.storyboard */,
+				D07A4DA8160EB5ED004A99C6 /* DetailController.h */,
+				D07A4DA9160EB5ED004A99C6 /* DetailController.m */,
 				D07A4DA0160EB4BB004A99C6 /* ViewController.h */,
 				D07A4DA1160EB4BB004A99C6 /* ViewController.m */,
+				D07A4D9D160EB4BB004A99C6 /* MainStoryboard.storyboard */,
 				D07A4D8C160EB4BA004A99C6 /* Supporting Files */,
 			);
 			path = bonjour;
@@ -176,6 +181,7 @@
 				D07A4D92160EB4BA004A99C6 /* main.m in Sources */,
 				D07A4D96160EB4BA004A99C6 /* AppDelegate.m in Sources */,
 				D07A4DA2160EB4BB004A99C6 /* ViewController.m in Sources */,
+				D07A4DAA160EB5ED004A99C6 /* DetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

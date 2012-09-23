@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DetailController.h
 //  bonjour
 //
 //  Created by Peter Morton on 23/09/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITableViewController
+@interface DetailController : UITableViewController
 
 @end
