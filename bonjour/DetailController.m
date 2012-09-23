@@ -8,11 +8,10 @@
 
 #import "DetailController.h"
 
-
 #import <netinet/in.h>
 #import <arpa/inet.h>
 
-@interface DetailController ()
+@interface DetailController () <NSNetServiceDelegate>
 
 @end
 
@@ -76,6 +75,18 @@
     }
     
     return cell;
+}
+
+# pragma mark - NSNetService delegate
+
+- (void)netServiceDidResolveAddress:(NSNetService *)sender {
+    [self.tableView reloadData];
+}
+
+- (void)setService:(NSNetService *)service {
+    _service = service;
+    service.delegate = self;
+    [service resolveWithTimeout:1];
 }
 
 @end
