@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DetailController.h"
 
 @interface ViewController () <NSNetServiceBrowserDelegate>
 
@@ -68,6 +69,16 @@
     if(!moreComing)
         [self.tableView reloadData];
 }
+
+
+# pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSNetService *service = [self.services objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    
+    [(DetailController *)segue.destinationViewController setService:service];
+}
+
 
 
 @end

@@ -10,4 +10,6 @@
 
 @interface DetailController : UITableViewController
 
+@property (nonatomic, retain) NSNetService *service;
+
 @end

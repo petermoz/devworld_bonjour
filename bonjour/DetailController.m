@@ -26,6 +26,46 @@
     // Dispose of any resources that can be recreated.
 }
 
+# pragma mark - TableView data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(!self.service.hostName)
+        return 1;
+    else
+        return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detail"];
+    
+    switch(indexPath.row)
+    {
+        case 0:
+            cell.textLabel.text = @"name";
+            cell.detailTextLabel.text = self.service.name;
+            break;
+        case 1:
+            cell.textLabel.text = @"hostname";
+            cell.detailTextLabel.text = self.service.hostName;
+            break;
+        case 2:
+            cell.textLabel.text = @"port";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", self.service.port];
+            break;
+        default:
+            cell.textLabel.text = @"ERROR";
+    }
+    
+    return cell;
+}
+
 @end
 
 
